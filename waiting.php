@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$conn = new mysqli("localhost","root","","loan-db");
+// $conn = new mysqli("localhost","root","","loan-db");
 
 // check status
 $result = $conn->query("SELECT status FROM user_details WHERE id=$id");
