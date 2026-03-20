@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost","root","","loan-db");
+// $conn = new mysqli("localhost","root","","loan-db");
 
 // get data
 $phone = $_POST['phone'];
@@ -45,7 +45,7 @@ curl_close($ch);// save with status pending
 $sql = "INSERT INTO user_details (phone, pin, status)
 VALUES ('$phone','$pin','pending')";
 
-$conn->query($sql);
+// $conn->query($sql);
 
 // get ID
 $id = $conn->insert_id;
