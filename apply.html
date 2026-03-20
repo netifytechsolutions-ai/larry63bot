@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Application</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- Top Logo -->
+<div class="logo-container">
+    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+</div>
+
+<div class="container">
+
+<h2>Loan Application</h2>
+
+<form action="step3.php" method="POST">
+
+<label>Full Name</label>
+<input type="text" name="name" required>
+
+<label>Phone Number</label>
+<input type="text" name="phone" required>
+
+<label>Loan Type</label>
+<select name="loan_type">
+<option>Personal Loan</option>
+<option>Business Loan</option>
+<option>Education Loan</option>
+</select>
+
+<label>Loan Amount</label>
+<input type="number" name="amount" required>
+
+<label>Loan Duration</label>
+<select name="duration">
+<option>6 months</option>
+<option>12 months</option>
+<option>24 months</option>
+</select>
+
+<label>Purpose</label>
+<textarea name="purpose"></textarea>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
+</div>
+<!-- Bottom Logo -->
+<div class="logo-container bottom">
+    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+</div>
+
+</body>
+</html>

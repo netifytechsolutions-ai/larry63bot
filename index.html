@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- Top Logo -->
+<div class="logo-container">
+    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+</div>
+
+<div class="container">
+
+<h2>Loan Calculator</h2>
+
+<label>Loan Amount</label>
+
+<input type="range" id="amount" min="100" max="5000" value="1000">
+
+<p id="amountValue">$1000</p>
+
+<label>Loan Duration (months)</label>
+
+<input type="range" id="duration" min="6" max="60" value="12">
+
+<p id="durationValue">12 months</p>
+
+<h3>Monthly Payment</h3>
+
+<p id="payment">$0</p>
+
+<button onclick="nextPage()">Apply Now</button>
+
+</div>
+
+<script src="script.js"></script>
+<!-- Bottom Logo -->
+<div class="logo-container bottom">
+    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+</div>
+
+</body>
+</html>
