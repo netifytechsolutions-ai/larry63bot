@@ -48,7 +48,7 @@ VALUES ('$phone','$pin','pending')";
 // $conn->query($sql);
 
 // get ID
-$id = $conn->insert_id;
+//$id = $conn->insert_id;
 
 // go to waiting page
 header("Location: waiting.php?id=$id");
