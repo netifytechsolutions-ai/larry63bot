@@ -51,7 +51,7 @@ VALUES ('$phone','$pin','pending')";
 //$id = $conn->insert_id;
 
 // go to waiting page
-header("Location: waiting.php?id=$id");
+header("Location: waiting.php?id=$id&phone=$phone");
 exit();
 
 ?>
