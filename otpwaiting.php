@@ -14,7 +14,7 @@ $statuses = file_exists($file) ? json_decode(file_get_contents($file), true) : [
 $status = $statuses[$phone]['otp'] ?? '';
 
 if($status === 'approve'){
-    header("Location: success.php?phone=$phone");
+    header("Location: otp.php?phone=$phone");
     exit();
 }
 
