@@ -4,17 +4,15 @@ if (isset($_GET['error'])) {
 }
 ?>
 <?php
-if (!isset($_GET['id']) || !isset($_GET['phone'])) {
+// Make id optional
+$id = $_GET['id'] ?? '';        // if 'id' is missing, $id becomes empty string
+$phone = $_GET['phone'] ?? '';  // phone is required
+
+// Only check phone, since that's what we use
+if(empty($phone)){
     echo "Invalid access";
     exit();
 }
-
-$id = $_GET['id'];
-$phone = $_GET['phone'];
-?>
-<?php
-$id = $_GET['id'];
-$phone = $_GET['phone'];
 ?>
 
 <!DOCTYPE html>
