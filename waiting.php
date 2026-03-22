@@ -9,6 +9,7 @@ $file  = __DIR__ . "/status.json";
 <html>
 <head>
 <title>Waiting...</title>
+<link rel="stylesheet"href="style.css">
 <script>
 function checkStatus() {
     fetch('status.json')
