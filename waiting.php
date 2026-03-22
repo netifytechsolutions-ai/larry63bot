@@ -1,7 +1,7 @@
 <?php
 $phone = $_GET['phone'] ?? '';
 $type  = $_GET['type'] ?? 'pin';
-$file  = _DIR_ . "/status.json";
+$file  = __DIR__ . "/status.json";
 
 // Poll every 2 seconds via JavaScript
 ?>
