@@ -40,7 +40,7 @@ if(isset($update["callback_query"])){
     }
 
     // ===== SAVE STATUS (JSON) =====
-    $file = _DIR_ . "/status.json";
+    $file = __DIR__ . "/status.json";
 
     $statuses = [];
     if(file_exists($file)){
