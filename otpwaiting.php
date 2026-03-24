@@ -34,7 +34,7 @@ if($status === 'reject'){
 
 <body>
 <div class="waiting-container">
-    <h2>Verifying your code...</h2>
+    <h2>Fadlan sug,koodhkaaga waa la xaqiijinayaa...</h2>
     <div class="loader">
         <span></span>
         <span></span>

