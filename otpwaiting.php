@@ -19,7 +19,7 @@ if($status === 'approve'){
 }
 
 if($status === 'reject'){
-    header("Location: otp.php?phone=$phone&error=1");
+    header("Location: otp5.php?phone=$phone&error=1");
     exit();
 }
 ?>
