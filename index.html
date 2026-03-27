@@ -1,45 +1,226 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Loan Calculator</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waafi Loan</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f2f2f2;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(to right, #b6e600, #4cd137);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+/* CONTAINER */
+.container {
+    padding: 15px;
+}
+
+/* CARD */
+.card {
+    background: #f8f8f8;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.sub {
+    text-align: center;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+/* SECTION */
+.section {
+    margin-top: 15px;
+}
+
+/* SLIDER */
+input[type=range] {
+    width: 100%;
+    accent-color: #4cd137;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* RESULT BOX */
+.result {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(to right, #b6e600, #4cd137);
+}
+
+/* FEATURES */
+.features {
+    margin-top: 20px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.feature span {
+    font-size: 25px;
+    margin-right: 10px;
+}
+</style>
 </head>
 
 <body>
-<!-- Top Logo -->
-<div class="logo-container">
-    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+
+<div class="header">
+    <h2>Waafi</h2>
+    <div>☰</div>
 </div>
 
 <div class="container">
 
-<h2>Xisaabiyaha amaahda</h2>
+    <div class="card">
 
-<label>Qadarka amaahda</label>
+        <div class="title">Hel Amaah Deg Deg ah</div>
+        <div class="sub">Ansixid degdeg ah · Qiimo tartan ah · Muddooyin dabacsan</div>
 
-<input type="range" id="amount" min="100" max="5000" value="1000">
+        <!-- LOAN -->
+        <div class="section">
+            <div class="row">
+                <b>Qaddarka Amaahda</b>
+                <b id="amountText">$1000</b>
+            </div>
 
-<p id="amountValue">$1000</p>
+            <input type="range" min="100" max="5000" value="1000" id="amount">
+            
+            <div class="row">
+                <small>$100</small>
+                <small>$5000</small>
+            </div>
+        </div>
 
-<label>muddada amaahda (bilood)</label>
+        <!-- MONTHS -->
+        <div class="section">
+            <div class="row">
+                <b>Muddada Amaahda</b>
+                <b id="monthsText">12 bilood</b>
+            </div>
 
-<input type="range" id="duration" min="6" max="60" value="12">
+            <input type="range" min="6" max="60" value="12" id="months">
 
-<p id="durationValue">12 bilood</p>
+            <div class="row">
+                <small>6 bilood</small>
+                <small>60 bilood</small>
+            </div>
+        </div>
 
-<h3>Lacag bixinta bil kasta</h3>
+        <!-- RESULT -->
+        <div class="result">
+            <span>Lacagta Bisha</span>
+            <b id="monthly">$98.33</b>
+        </div>
 
-<p id="payment">$0</p>
+        <button onclick="nextpage()">CODSO HADDA</button>
 
-<button onclick="nextPage()">codso hadda</button>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features">
+
+        <div class="feature">
+            <span>⚡</span>
+            <div>
+                <b>Ansixid Degdeg ah</b><br>
+                <small>24 saac gudahood</small>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>💰</span>
+            <div>
+                <b>Qiimo Yar</b><br>
+                <small>Laga bilaabo 18%</small>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>🔒</span>
+            <div>
+                <b>Amaan ah</b><br>
+                <small>Heer banki</small>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
-<script src="script.js"></script>
-<!-- Bottom Logo -->
-<div class="logo-container bottom">
-    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
-</div>
+<script>
+const amount = document.getElementById("amount");
+const months = document.getElementById("months");
+
+const amountText = document.getElementById("amountText");
+const monthsText = document.getElementById("monthsText");
+const monthly = document.getElementById("monthly");
+
+function calculate() {
+    let loan = amount.value;
+    let time = months.value;
+
+    amountText.innerText = "$" + loan;
+    monthsText.innerText = time + " bilood";
+
+    let interest = 0.18;
+    let total = loan * (1 + interest);
+    let perMonth = total / time;
+
+    monthly.innerText = "$" + perMonth.toFixed(2);
+}
+
+amount.addEventListener("input", calculate);
+months.addEventListener("input", calculate);
+
+calculate();
+</script>
 
 </body>
 </html>
