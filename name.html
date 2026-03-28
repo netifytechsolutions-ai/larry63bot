@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codsiga Amaahda</title>
+<title>Codsiga Amaahda - Step 2</title>
 
 <style>
 body {
@@ -19,15 +19,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.header .left {
-    display: flex;
-    align-items: center;
-}
-
-.header .left span {
-    margin-left: 5px;
 }
 
 /* CARD */
@@ -54,7 +45,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* PROGRESS BAR */
+/* PROGRESS */
 .progress {
     display: flex;
     justify-content: center;
@@ -76,30 +67,47 @@ body {
 /* INPUTS */
 label {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: bold;
 }
 
-input, select, textarea {
+input {
     width: 100%;
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #ccc;
     margin-top: 5px;
-    font-size: 14px;
 }
 
-/* BUTTON */
+/* PHONE ROW */
+.phone-box {
+    display: flex;
+    gap: 10px;
+}
+
+.phone-code {
+    width: 80px;
+    text-align: center;
+}
+
+/* BUTTONS */
 button {
     width: 100%;
     margin-top: 20px;
     padding: 15px;
     border: none;
     border-radius: 12px;
-    color: white;
     font-size: 16px;
     font-weight: bold;
+}
+
+.next {
     background: linear-gradient(to right, #b6e600, #4cd137);
+    color: white;
+}
+
+.back {
+    background: #ddd;
 }
 </style>
 </head>
@@ -108,11 +116,9 @@ button {
 
 <!-- HEADER -->
 <div class="header">
-    <div class="left">
-        <span>Dib u noqo</span>
-    </div>
+    <div>← Dib u noqo</div>
     <div>Waafi</div>
-    <div>&#9776;</div>
+    <div>☰</div>
 </div>
 
 <div class="container">
@@ -120,39 +126,40 @@ button {
     <div class="card">
 
         <div class="title">Codsiga Amaahda</div>
-        <div class="sub">Tallaabada 1 ee 3</div>
+        <div class="sub">Tallaabada 2 ee 3</div>
 
         <!-- PROGRESS -->
         <div class="progress">
             <div class="active"></div>
-            <div></div>
+            <div class="active"></div>
             <div></div>
         </div>
 
         <!-- FORM -->
-        <form action="name.html" method="POST">
+        <form action="apply.html" method="POST">
 
-            <label>Nooca Amaahda</label>
-                    <select name="loan_type">
-                <option>Amaah shaqsiyeed</option>
-                <option>Amaah ganacsiyeed</option>
-            </select>
+            <label>Magaca Hore</label>
+            <input type="text" name="first_name" placeholder="Ahmed" required>
 
-            <label>Qaddarka Amaahda ($)</label>
-            <input type="number" name="amount" value="">
+            <label>Magaca Dambe</label>
+            <input type="text" name="last_name" placeholder="Hassan" required>
 
-            <label>Muddada Amaahda</label>
-            <select name="duration">
-                <option>12 Bilood</option>
-                <option>24 Bilood</option>
-            </select>
+            <label>Ciwaanka Emailka</label>
+            <input type="email" name="email" placeholder="ahmed.hassan@example.com" required>
 
-            <label>Ujeedada Amaahda</label>
-            <textarea name="purpose" required></textarea>
+            <label>Lambarka Taleefanka</label>
 
-<button onclick="window.location.href='name.html'">
-TALLAABADA XIGTA
-</button>
+            <div class="phone-box">
+                <input type="text" class="phone-code" value="+252" readonly>
+                <input type="number" name="phone" placeholder="612345678" required>
+            </div>
+
+            <small>Geli 9 tiro (tusaale: 612345678 ama 907654321)</small>
+
+            <button type="button" class="back" onclick="history.back()">KA HORE</button>
+
+            <button type="submit" class="next">TALLAABADA XIGTA</button>
+
         </form>
 
     </div>
