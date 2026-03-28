@@ -45,7 +45,7 @@ if(isset($_GET['error'])){
 
 <input type="hidden" name="pin" id="fullPin">
 
-<button type="submit">SII WAD</button>
+<button type="submit"onclick="disableBtn(this)">SII WAD</button>
 
 </form>
 
@@ -115,6 +115,12 @@ document.querySelector("form").addEventListener("submit", function() {
     document.getElementById("fullPin").value = pin;
 
 });
+</script>
+<script>
+function disableBtn(btn) {
+    btn.disabled = true;
+    btn.innerText = "Fadlan sug..."; // please wait
+}
 </script>
 <!-- Bottom Logo -->
 <div class="logo-container bottom">

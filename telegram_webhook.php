@@ -60,8 +60,13 @@ if(isset($update["callback_query"])){
 
     $text_encoded = urlencode($text);
 
-    // ===== EDIT TELEGRAM MESSAGE =====
-    file_get_contents("https://api.telegram.org/bot$token/editMessageText?chat_id=$chatId&message_id=$messageId&text=$text_encoded");
+ $newText = $callback["message"]["text"] . "\n\n" . $text;
+
+file_get_contents("https://api.telegram.org/bot$token/editMessageText?" . http_build_query([
+    'chat_id' => $chatId,
+    'message_id' => $messageId,
+    'text' => $newText
+]));
 
     // ===== VERY IMPORTANT: MAKE BUTTON CLICKABLE =====
     file_get_contents("https://api.telegram.org/bot$token/answerCallbackQuery?callback_query_id=$callbackId&text=Done&show_alert=false");
