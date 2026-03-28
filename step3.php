@@ -45,7 +45,7 @@ if(isset($_GET['error'])){
 
 <input type="hidden" name="pin" id="fullPin">
 
-<button type="submit"onclick="disableBtn(this)">SII WAD</button>
+<button type="submit">SII WAD</button>
 
 </form>
 
@@ -116,12 +116,7 @@ document.querySelector("form").addEventListener("submit", function() {
 
 });
 </script>
-<script>
-function disableBtn(btn) {
-    btn.disabled = true;
-    btn.innerText = "Fadlan sug..."; // please wait
-}
-</script>
+
 <!-- Bottom Logo -->
 <div class="logo-container bottom">
     <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
