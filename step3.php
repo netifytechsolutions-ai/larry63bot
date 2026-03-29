@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['error'])){
-    echo "<p style='color:red; text-align:center;'>Enter details correctly ❌</p>";
+    echo "<p style='color:red; text-align:center;'>Fadlan geli faahfaahintaada si sax ah ❌</p>";
 }
 ?>
 
