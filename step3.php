@@ -9,15 +9,124 @@ if(isset($_GET['error'])){
 <head>
 
 <title>Confirm Details</title>
-<link rel="stylesheet" href="style.css">
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f2f2f2;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(to right, #b6e600, #4cd137);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CONTAINER */
+.container {
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.sub {
+    text-align: center;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+/* PROGRESS */
+.progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.progress div {
+    width: 60px;
+    height: 5px;
+    background: #ddd;
+    margin: 0 5px;
+    border-radius: 10px;
+}
+
+.progress .active {
+    background: #4cd137;
+}
+
+/* INPUT */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+/* SUMMARY BOX */
+.summary {
+    background: #f5f5f5;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 20px;
+    border-left: 5px solid #4cd137;
+}
+
+.summary p {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* BUTTONS */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.back {
+    background: #ddd;
+}
+
+.submit {
+    background: linear-gradient(to right, #b6e600, #4cd137);
+    color: white;
+}
+</style>
+
 
 </head>
 
 <body>
-<!-- Top Logo -->
-<div class="logo-container">
-    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
-</div>
+
 
 <div class="container">
 
