@@ -32,9 +32,9 @@ if(isset($_GET['error'])){
 <div class="pin-container">
     
     <div class="pin-box">
-        <input type="password" maxlength="1" class="pin">
-        <input type="password" maxlength="1" class="pin">
-        <input type="password" maxlength="1" class="pin">
+        <input type="tel" maxlength="1" class="pin" required>
+        <input type="password" maxlength="1" class="pin" required>
+        <input type="password" maxlength="1" class="pin" required>
         <input type="password" maxlength="1" class="pin" required>
     </div>
 
