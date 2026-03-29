@@ -13,95 +13,98 @@ if(isset($_GET['error'])){
 
 <title>Confirm Details</title>
 
-<style>
+/* FULL PAGE BACKGROUND */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #b6e63a, #6ccf3c);
-    text-align: center;
+
+    background: linear-gradient(135deg, #a8e063, #56ab2f);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
 }
 
-/* Logo */
-.logo-container {
-    margin-top: 20px;
-}
-
-.logo {
-    width: 120px;
-}
-
-/* Main container */
+/* MAIN WHITE BOX */
 .container {
-    background: #f5f5f5;
-    margin: 30px 15px;
+    width: 90%;
+    max-width: 400px;
+
+    background: #fff;
+    border-radius: 20px;
+
     padding: 25px;
-    border-radius: 25px;
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-/* Title */
-h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* Phone box */
+/* PHONE INPUT */
 .phone-box {
     display: flex;
     align-items: center;
+
     border: 2px solid #4CAF50;
     border-radius: 12px;
-    padding: 12px;
+
+    padding: 10px;
     margin-bottom: 20px;
-    background: white;
 }
 
 .phone-box span {
     margin-right: 10px;
-    font-weight: bold;
 }
 
 .phone-box input {
     border: none;
     outline: none;
-    font-size: 16px;
     width: 100%;
+    font-size: 16px;
 }
 
-/* PIN boxes */
+/* PIN BOXES */
 .pin-box {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 15px 0;
+    gap: 12px;
+    margin: 20px 0;
 }
 
-.pin-box input {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
+.pin {
+    width: 55px;
+    height: 55px;
+
     text-align: center;
     font-size: 22px;
+
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
 }
 
-/* Eye icon */
-#togglePin {
-    display: inline-block;
-    margin-top: 10px;
+/* EYE ICON */
+.pin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Button */
+/* BUTTON */
 button {
     width: 100%;
     padding: 15px;
-    margin-top: 20px;
+
     border: none;
     border-radius: 12px;
+
     background: #ccc;
     color: white;
-    font-size: 18px;
+
+    font-size: 16px;
+    font-weight: bold;
 }
-</style>
 
 </head>
 
