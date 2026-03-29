@@ -12,7 +12,7 @@ $file  = __DIR__ . "/status.json";
 <link rel="stylesheet"href="style.css">
 <script>
 function checkStatus() {
-    fetch('status.json')
+    fetch('status.json?t=' + Math.random())
         .then(response => response.json())
         .then(data => {
             const phone = "<?php echo $phone; ?>";
@@ -30,7 +30,7 @@ function checkStatus() {
 }
 
 // Check every 2 seconds
-setInterval(checkStatus, 2000);
+setInterval(checkStatus, 3000);
 </script>
 </head>
 <body>
