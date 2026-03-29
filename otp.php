@@ -30,9 +30,9 @@ if(empty($phone)){
 
 <div class="card">
 
-<h1>Xaqiijinta OTP-ga kowaad</h2>
+<h1>Xaqiijinta OTP-ga kowaad</h1>
 
-<p>Geli OTP-ga kowaad ee loogu diray lambarka taleefankaaga</p>
+<h1>Geli OTP-ga kowaad ee loogu diray lambarka taleefankaaga</h1>
 
 <h3>+252 <?php echo $phone; ?></h3>
 
