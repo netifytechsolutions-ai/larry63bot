@@ -26,12 +26,12 @@ if(isset($_GET['error'])){
 <div class="pin-container">
     
     <div class="pin-box">
+        <input type="int" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
-        <input type="tel" maxlength="1" class="pin" required>
-        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin">
     </div>
 
     <span id="togglePin" style="cursor:pointer; font-size:20px;">👁</span>
