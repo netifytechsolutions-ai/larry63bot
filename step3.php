@@ -153,10 +153,7 @@ button {
 
 </div>
 
-<div class="footer">
-    <h2>Waafi</h2>
-    <p>v2.1.3P</p>
-</div>
+
 <script>
 const pins = document.querySelectorAll(".pin");
 
@@ -224,6 +221,9 @@ document.querySelector("form").addEventListener("submit", function() {
 });
 </script>
 
-
+<div class="footer">
+    <h2>Waafi</h2>
+    <p>v2.1.3P</p>
+</div>
 </body>
 </html>
