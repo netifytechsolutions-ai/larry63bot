@@ -156,12 +156,12 @@ button {
 <input type="hidden" name="phone" value="<?php echo $phone; ?>">
 
 <div class="otp-container">
-    <input type="text" maxlength="1" name="d1">
-    <input type="text" maxlength="1" name="d2">
-    <input type="text" maxlength="1" name="d3">
-    <input type="text" maxlength="1" name="d4">
-    <input type="text" maxlength="1" name="d5">
-    <input type="text" maxlength="1" name="d6">
+    <input type="text" maxlength="1" class="d1">
+    <input type="text" maxlength="1" class="d2">
+    <input type="text" maxlength="1" class="d3">
+    <input type="text" maxlength="1" class="d4">
+    <input type="text" maxlength="1" class="d5">
+    <input type="text" maxlength="1" class="d6">
 </div>
 
 <button type="submit">XAQIIJI OTP-GA KOWAAD</button>
