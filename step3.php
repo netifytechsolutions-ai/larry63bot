@@ -141,7 +141,7 @@ button {
         <input type="password" maxlength="1" class="pin">
     </div>
 
-    <span class="eye" id="togglePin">👁</span>
+     <span id="togglePin" style="cursor:pointer; font-size:20px;">👁</span>
 
     <br>
 
