@@ -101,6 +101,34 @@ body {
     color: white;
     padding: 30px;
 }
+[9:28 PM, 4/20/2026] Denno Netifytech: /* OTP container */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+/* Each OTP box */
+.otp {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #ccc;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+}
 </style>
 </head>
 
