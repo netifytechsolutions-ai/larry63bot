@@ -30,7 +30,7 @@ if(isset($_GET['error'])){
         <input type="tel" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
-        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin">
         <input type="tel" maxlength="1" class="pin">
     </div>
 
@@ -58,7 +58,7 @@ pins[0].addEventListener("input", function(e) {
         pins.forEach((input, i) => {
             input.value = value[i] || "";
         });
-        if (value.length === 6) pins[3].focus();
+        if (value.length === 1) pins[3].focus();
         return;
     }
 
