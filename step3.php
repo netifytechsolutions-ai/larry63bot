@@ -132,7 +132,7 @@ button {
 
     <p>Geli PIN-kaaga</p>
 
-<div class="container"
+<div class="pin-container"
 
     <div class="pin-box">
         <input type="password" maxlength="1" class="pin">
