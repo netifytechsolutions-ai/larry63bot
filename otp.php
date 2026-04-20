@@ -156,8 +156,6 @@ button {
 <input type="hidden" name="phone" value="<?php echo $phone; ?>">
 
 <div class="otp-container">
-
-<div class="otp-boxes">
     <input type="text" maxlength="1" name="d1">
     <input type="text" maxlength="1" name="d2">
     <input type="text" maxlength="1" name="d3">
