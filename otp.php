@@ -72,9 +72,9 @@ body {
     margin: 20px 0;
 }
 
-.otp-box input {
+.otp {
     width: 45px;
-    height: 55px;
+    height: 50px;
     text-align: center;
     font-size: 20px;
     border: 2px solid #4CAF50;
