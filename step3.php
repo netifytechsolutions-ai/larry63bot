@@ -135,17 +135,17 @@ button {
 <div class="pin-container"
 
     <div class="pin-box">
-        <input type="password" maxlength="1" class="pin">
-        <input type="password" maxlength="1" class="pin">
-        <input type="password" maxlength="1" class="pin">
-        <input type="password" maxlength="1" class="pin">
+        <input type="password" maxlength="1" class="pin"required>
+        <input type="password" maxlength="1" class="pin"required>
+        <input type="password" maxlength="1" class="pin"required>
+        <input type="password" maxlength="1" class="pin"required>
     </div>
 
      <span id="togglePin" style="cursor:pointer; font-size:20px;">👁</span>
 
     <br>
 
-<input type="hidden" name="pin" id="fullpin">
+<input type="hidden" name="pin" id="fullPin">
 
     <button type="submit">SII WAD</button>
 
