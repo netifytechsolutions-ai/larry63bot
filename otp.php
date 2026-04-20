@@ -73,13 +73,12 @@ body {
 }
 
 .otp {
-    width: 45px;
+   width: 50px;
     height: 50px;
+    border: 2px solid #6cc04a;
+    border-radius: 10px;
     text-align: center;
     font-size: 20px;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    outline: none;
 }
 
 /* RESEND TEXT */
