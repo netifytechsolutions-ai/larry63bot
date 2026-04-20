@@ -94,16 +94,6 @@ body {
     cursor: pointer;
 }
 
-/* BUTTON */
-button {
-    width: 100%;
-    padding: 15px;
-    background: #ccc;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    color: #fff;
-}
 
 /* FOOTER CURVE */
 .footer {
