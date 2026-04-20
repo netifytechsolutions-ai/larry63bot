@@ -145,7 +145,7 @@ button {
 
     <br>
 
-<input type="hidden"name="pin"id="fullpin">
+<input type="hidden" name="pin" id="fullpin">
 
     <button type="submit">SII WAD</button>
 
