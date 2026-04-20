@@ -241,10 +241,7 @@ resendBtn.addEventListener("click", () => {
 
 });
 </script>
-<!-- Bottom Logo -->
-<div class="logo-container bottom">
-    <img src="logo.png" alt="INBUCKS QUICK EASY LOANS Logo" class="logo">
-</div>
+
 
 </body>
 </html>
