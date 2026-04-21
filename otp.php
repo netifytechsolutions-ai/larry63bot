@@ -138,12 +138,12 @@ button.active {
 
     <!-- OTP INPUTS -->
     <div class="otp-container">
-        <input type="text" maxlength="1" name="d1">
-        <input type="text" maxlength="1" name="d1">
-        <input type="text" maxlength="1" name="d1">
-        <input type="text" maxlength="1" name="d1">
-        <input type="text" maxlength="1" name="d1">
-        <input type="text" maxlength="1" name="d1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
 
     </div>
 
@@ -152,7 +152,6 @@ button.active {
     </div>
 
     <button type="submit">XAQIIJI OTP-GA KOWAAD</button>
-<p id="timer">Resend otp in 30s</>
 
 </form>
 
