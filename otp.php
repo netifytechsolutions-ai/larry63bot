@@ -137,20 +137,22 @@ button.active {
 
 
     <!-- OTP INPUTS -->
-    <div class="otp-box" id="otpBox">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
+    <div class="otp-container">
+        <input type="text" maxlength="1" name="d1">
+        <input type="text" maxlength="1" name="d1">
+        <input type="text" maxlength="1" name="d1">
+        <input type="text" maxlength="1" name="d1">
+        <input type="text" maxlength="1" name="d1">
+        <input type="text" maxlength="1" name="d1">
+
     </div>
 
     <div class="resend">
         Koodka ma helin? <span id="resend">Mar kale dir</span>
     </div>
 
-    <button type="submitBtn">XAQIIJI OTP-GA KOWAAD</button>
+    <button type="submit">XAQIIJI OTP-GA KOWAAD</button>
+<p id="timer">Resend otp in 30s</>
 
 </form>
 
