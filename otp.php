@@ -167,7 +167,7 @@ button.active {
 </html>
 
 <script>
-const inputs = document.querySelectorAll(".otp-box input");
+const inputs = document.querySelectorAll(".otp-container input");
 const button = document.getElementById("submit");
 
 
