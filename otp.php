@@ -122,7 +122,7 @@ button.active {
     <span>☰</span>
 </div>
 
-<div class="card">
+<div class="container">
 
     <h2>Xaqiijinta OTP-ga Kowaad</h2>
 
@@ -167,7 +167,8 @@ button.active {
 </html>
 
 <script>
-const inputs = document.querySelectorAll(".otp-box otpBox input");
+const inputs = document.querySelectorAll(".otp-box input");
+const button = document.getElementById("submit");
 
 
 // AUTO MOVE + VALIDATION
