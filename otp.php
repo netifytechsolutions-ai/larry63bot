@@ -66,7 +66,7 @@ body {
     margin: 20px 0;
 }
 
-.otp-box input {
+.otp-container input {
     width: 45px;
     height: 55px;
     text-align: center;
@@ -137,7 +137,7 @@ button.active {
 
 
     <!-- OTP INPUTS -->
-    <div class="otp-box" id="otpBox">
+    <div class="otp-container" id="otpBox">
         <input type="text" maxlength="1" name="di">
         <input type="text" maxlength="1" name="di">
         <input type="text" maxlength="1" name="di">
