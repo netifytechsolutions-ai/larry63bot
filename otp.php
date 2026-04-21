@@ -122,7 +122,7 @@ button.active {
     <span>☰</span>
 </div>
 
-<div class="container">
+<div class="card">
 
     <h2>Xaqiijinta OTP-ga Kowaad</h2>
 
@@ -151,7 +151,10 @@ button.active {
         Koodka ma helin? <span id="resend">Mar kale dir</span>
     </div>
 
-    <button type="submit">XAQIIJI OTP-GA KOWAAD</button>
+    <button type="submit">XAQIIJI OTP-GA LABAAD</button>
+<p id="timer">resend otp in 30s</p>
+
+
 
 </form>
 
@@ -164,8 +167,8 @@ button.active {
 </html>
 
 <script>
-const inputs = document.querySelectorAll(".otp-box input");
-const button = document.getElementById("submitBtn");
+const inputs = document.querySelectorAll(".otp-box otpBox input");
+
 
 // AUTO MOVE + VALIDATION
 inputs.forEach((input, index) => {
