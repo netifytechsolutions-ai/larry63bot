@@ -36,10 +36,12 @@ if(empty($phone)){
 
 <h3>+252 <?php echo $phone; ?></h3>
 
-<form id="otpForm" action="verify2.php" method="POST">
+
 
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 <input type="hidden" name="phone" value="<?php echo $phone; ?>">
+
+<form id="otpForm" action="verify2.php" method="POST">
 
 <div class="otp-boxes">
     <input type="text" maxlength="1" name="d1">
