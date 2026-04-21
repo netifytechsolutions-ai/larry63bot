@@ -137,13 +137,13 @@ button.active {
 
 
     <!-- OTP INPUTS -->
-    <div class="otp-container">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
-        <input type="text" maxlength="1">
+    <div class="otp-box" id="otpBox">
+        <input type="text" maxlength="1" name="di">
+        <input type="text" maxlength="1" name="di">
+        <input type="text" maxlength="1" name="di">
+        <input type="text" maxlength="1" name="di">
+        <input type="text" maxlength="1" name="di">
+        <input type="text" maxlength="1" name="di">
 
     </div>
 
@@ -160,6 +160,8 @@ button.active {
 <div class="footer">
     © 2026 Waafi Soomaaliya
 </div>
+</body>
+</html>
 
 <script>
 const inputs = document.querySelectorAll(".otp-box input");
