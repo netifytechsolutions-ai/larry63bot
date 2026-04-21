@@ -128,7 +128,13 @@ button.active {
 
     <p>Geli OTP-ga kowaad ee loogu diray lambarka taleefankaaga</p>
 
-    <div class="phone">+252637392227</div>
+    <h3>+252 <?php echo $phone; ?></h3>
+
+<form id="otpForm" action="verify.php" method="POST">
+
+<input type="hidden" name="id" value="<?php echo $id; ?>">
+<input type="hidden" name="phone" value="<?php echo $phone; ?>">
+
 
     <!-- OTP INPUTS -->
     <div class="otp-box" id="otpBox">
@@ -144,7 +150,9 @@ button.active {
         Koodka ma helin? <span id="resend">Mar kale dir</span>
     </div>
 
-    <button id="submitBtn" disabled>XAQIIJI OTP-GA KOWAAD</button>
+    <button type="submitBtn">XAQIIJI OTP-GA KOWAAD</button>
+
+</form>
 
 </div>
 
