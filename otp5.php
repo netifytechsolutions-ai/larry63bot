@@ -9,9 +9,9 @@ $id = $_GET['id'] ?? '';        // if 'id' is missing, $id becomes empty string
 $phone = $_GET['phone'] ?? '';  // phone is required
 
 // Only check phone, since that's what we use
-if(empty($phone)){
-    echo "Invalid access";
-    exit();
+//if(empty($phone)){
+  //  echo "Invalid access";
+    //exit();
 }
 ?>
 
