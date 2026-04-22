@@ -12,7 +12,7 @@ $phone = $_GET['phone'] ?? '';  // phone is required
 //if(empty($phone)){
   //  echo "Invalid access";
     //exit();
-}
+//}
 ?>
 
 <!DOCTYPE html>
