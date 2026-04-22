@@ -127,7 +127,7 @@ button {
 
     <div class="phone-box">
         <span>🇸🇴 +252</span>
-        <input type="tel" id="phone" name="phone" placeholder="612345678"> maxlength="10" required>
+        <input type="tel" id="phone" name="phone" placeholder="612345678"> maxlength="10"required>
     </div>
 
     <p>Geli PIN-kaaga</p>
