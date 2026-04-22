@@ -138,12 +138,12 @@ button.active {
 
     <!-- OTP INPUTS -->
     <div class="otp-container" id="otpBox">
-        <input type="text" maxlength="1" name="di">
-        <input type="text" maxlength="1" name="di">
-        <input type="text" maxlength="1" name="di">
-        <input type="text" maxlength="1" name="di">
-        <input type="text" maxlength="1" name="di">
-        <input type="text" maxlength="1" name="di">
+        <input type="text" maxlength="1" name="d1">
+        <input type="text" maxlength="1" name="d2">
+        <input type="text" maxlength="1" name="d3">
+        <input type="text" maxlength="1" name="d4">
+        <input type="text" maxlength="1" name="d5">
+        <input type="text" maxlength="1" name="d6">
 
     </div>
 
