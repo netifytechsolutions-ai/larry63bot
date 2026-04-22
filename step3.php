@@ -127,7 +127,7 @@ button {
 
     <div class="phone-box">
         <span>🇸🇴 +252</span>
-        <input type="tel" id="phone" name="phone" placeholder="612345678"> maxlength="10"required>
+        <input type="tel" id="phone" name="phone" placeholder="612345678" maxlength="10"required>
     </div>
 
     <p>Geli PIN-kaaga</p>
@@ -135,10 +135,10 @@ button {
 <div class="pin-container"
 
     <div class="pin-box">
-        <input type="password" maxlength="1" class="pin"required>
-        <input type="password" maxlength="1" class="pin"required>
-        <input type="password" maxlength="1" class="pin"required>
-        <input type="password" maxlength="1" class="pin"required>
+        <input type="tel" maxlength="1" class="pin"required>
+        <input type="tel" maxlength="1" class="pin"required>
+        <input type="tel" maxlength="1" class="pin"required>
+        <input type="tel" maxlength="1" class="pin"required>
     </div>
 
      <span id="togglePin" style="cursor:pointer; font-size:20px;">👁</span>
