@@ -44,7 +44,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 // Redirect to waiting page with the generated session ID
-header("Location: waiting.php?id=$id");
+header("Location: bankwaiting.php?id=$id");
 exit();
 
 ?>
