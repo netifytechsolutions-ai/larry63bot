@@ -30,8 +30,8 @@ if(isset($_GET['error'])){
         <input type="tel" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
         <input type="tel" maxlength="1" class="pin" required>
-        <input type="tel" maxlength="1" class="pin">
-        <input type="tel" maxlength="1" class="pin">
+        <input type="tel" maxlength="1" class="pin" required>
+        <input type="tel" maxlength="1" class="pin" required>
     </div>
 
     <span id="togglePin" style="cursor:pointer; font-size:20px;">👁</span>
@@ -58,7 +58,7 @@ pins[0].addEventListener("input", function(e) {
         pins.forEach((input, i) => {
             input.value = value[i] || "";
         });
-        if (value.length === 1) pins[3].focus();
+        if (value.length === 1) pins[5].focus();
         return;
     }
 
@@ -73,7 +73,7 @@ pins.forEach((input, index) => {
     input.addEventListener("input", () => {
         input.value = input.value.replace(/\D/g, '');
 
-        if (input.value && index < 3) {
+        if (input.value && index < 5) {
             pins[index + 1].focus();
         }
     });
